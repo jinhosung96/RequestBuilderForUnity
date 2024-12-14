@@ -3,13 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Cysharp.Threading.Tasks;
-using Mine.Scripts.App.Data;
-using MoraeGames.Library.Extension;
-using MoraeGames.Library.Util.Debug;
 using Newtonsoft.Json.Linq;
+using UnityEngine;
 using UnityEngine.Networking;
 
-namespace MoraeGames.Library.Manager.RequestBuilder
+namespace JHS.Library.RequestBuilder.Runtime
 {
     public struct Packet
     {
@@ -40,7 +38,7 @@ namespace MoraeGames.Library.Manager.RequestBuilder
             }
             catch (Exception e)
             {
-                Debug.Log(e, Debug.LogLevel.Error);
+                Debug.Log(e);
                 throw;
             }
         }
@@ -110,15 +108,15 @@ namespace MoraeGames.Library.Manager.RequestBuilder
 
         protected async UniTask<UnityWebRequest> SendAsync(UnityWebRequest request)
         {
-            Debug.Log($"Send : {request.url}", Debug.LogLevel.Network);
+            Debug.Log($"Send : {request.url}");
 
             foreach (var requestHeader in requestHeaders) request.SetRequestHeader(requestHeader.Key, requestHeader.Value);
 
             var operation = request.SendWebRequest();
             while (!operation.isDone) await UniTask.Yield();
             
-            if (request.result != UnityWebRequest.Result.Success) Debug.Log($"{request.result} : {request.error}", Debug.LogLevel.Network);
-            else if(!string.IsNullOrWhiteSpace(request.downloadHandler.text)) Debug.Log(JToken.Parse(request.downloadHandler.text), Debug.LogLevel.Network);
+            if (request.result != UnityWebRequest.Result.Success) Debug.Log($"{request.result} : {request.error}");
+            else if(!string.IsNullOrWhiteSpace(request.downloadHandler.text)) Debug.Log(JToken.Parse(request.downloadHandler.text));
             
             return request;
         }

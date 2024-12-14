@@ -16,6 +16,33 @@ RequestBuilder는 Rest API에 대한 Request 생성 프레임워크입니다. Bu
 - UNITASK_SUPPORT
 - JSON_SUPPORT
 
+## 설치 방법
+
+### Package Manager를 통한 설치
+
+Unity 2019.3.4f1 이상 버전에서는 Package Manager에서 직접 Git URL을 통해 설치할 수 있습니다.
+
+1. Package Manager 창을 엽니다 (Window > Package Manager)
+2. '+' 버튼을 클릭하고 "Add package from git URL"을 선택합니다
+3. 다음 URL을 입력합니다:
+```
+https://github.com/jinhosung96/RequestBuilderForUnity.git
+```
+
+또는 `Packages/manifest.json` 파일에 직접 추가할 수 있습니다:
+```json
+{
+  "dependencies": {
+    "com.jhs-library.auto-path-generator": "https://github.com/jinhosung96/RequestBuilderForUnity.git"
+  }
+}
+```
+
+특정 버전을 설치하려면 URL 뒤에 #{version} 태그를 추가하면 됩니다:
+```
+https://github.com/jinhosung96/RequestBuilderForUnity.git#1.0.0
+```
+
 ## 시작하기
 
 ### 사용 예시

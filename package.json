@@ -1,0 +1,13 @@
+{
+    "name": "com.jhs-library.request-builder",
+    "version": "1.0.0",
+    "displayName": "Request Builder",
+    "description": "Restful API Request Builder",
+    "unity": "2019.1",
+    "dependencies": {
+    },
+    "author": {
+        "name": "Hosung Jin",
+        "email": "ghtjd0075@gmail.com"
+    }
+}
